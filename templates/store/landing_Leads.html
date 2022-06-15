@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block contnet %}
+<br />
+
+<div style="margin: auto; width: 70%; height: 560px; border: solid 3px; border-color: #bdc3c7; border-radius: 4px;"
+class="p-4">
+<div class="fs-4">
+
+            <h2><center>Leads</center></h2>
+            <hr />
+
+            {% for price in prices %}
+            <div>
+                <h5>Price ${{ price.get_display_price }}</h5>
+                <form action="{% url 'create-checkout-session-leads' price.id %}" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <hr />
+
+                    <div class="row align-items-center col-sm-8">
+                        <div class="col-auto">
+                          <p for="inputPassword6" class="col-form-label">Country</p>
+                        </div>
+                        <div class="col-auto">
+                            <input class="form-control" type="text" value="{{ product.country }}" aria-label="readonly input example" readonly>
+                        </div>
+                    </div>
+                    <hr />
+        
+                    <div class="row align-items-center col-sm-8">
+                        <div class="col-auto">
+                          <p for="inputPassword6" class="col-form-label">Source</p>
+                        </div>
+        
+                        <div class="col-auto">
+                            <input class="form-control" type="text" value="{{ product.source }}" aria-label="readonly input example" readonly>
+                        </div>
+                    </div>
+                    <hr />
+        
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                          <p for="inputPassword6" class="col-form-label">Email Domains</p>
+                        </div>
+        
+                        <div class="col-auto">
+                            <input class="form-control" type="text" value="{{ product.Email_Domains }}" aria-label="readonly input example" readonly>
+                        </div>
+                    </div>
+                    <hr />
+        
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                          <p for="inputPassword6" class="col-form-label">Email Number</p>
+                        </div>
+        
+                        <div class="col-auto">
+                            <input class="form-control" type="text" value="{{ product.email_num }}" aria-label="readonly input example" readonly>
+                        </div>
+                    </div>
+                    <hr />
+                    <button type="submit" class="btn btn-outline-success">Checkout</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock contnet %}

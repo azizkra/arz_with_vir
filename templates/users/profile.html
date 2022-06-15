@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block contnet %}
+<br />
+<div class="content-section p-4" style="margin: auto; width: 50%; height: 620px; border: solid 3px; border-color: #bdc3c9; border-radius: 9px;">
+  <div class="media fs-6">
+    <center><img class="rounded-circle account-img" src="{{ user.profile.image.url }}"></center>
+    <div class="media-body">
+      <h2 class="account-heading">{{ user.username }}</h2>
+      <p class="text-secondary"><strong>{{ user.email }}</strong></p>
+    </div>
+  </div>
+
+ <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldest class="form-group">
+        <legend class="border-bottom mb-4"><center>Profile Info</center></legend>
+        
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-username"><i class="fas fa-user"></i></span>
+          {{ u_form|crispy }}
+        </div>
+        <br/>
+        {{ p_form|crispy }}
+    </fieldest>
+  <br/>
+  <div class="container">
+    <div class="d-flex flex-column">
+      <p class="m-auto"><strong><a href="{% url 'password_change' %}">Change Password</a></strong></p>
+    </div>
+  </div>
+    <br/>
+    <div class="form-group">
+          <center><button class="btn btn-primary" type="submit"><b> Submit </b><i class="fa fa-pencil"></i></button>
+          </center>
+    </div>    
+  </form> 
+</div>
+
+{% endblock contnet %}

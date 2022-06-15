@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block contnet %}
+<br />
+
+<div class="container my-5 mt-4">
+<table class="table table-striped table-hover border-light caption-top table-lg">
+    <thead style="background-color: #535c68; color:white">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Date Created</th>
+        <th scope="col">Title</th>
+        <th scope="col">Status</th>
+        <th scope="col">Last Replay</th>
+        <th scope="col">Last Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr> 
+        {% for tictet in ticket_list %}
+            <th scope="row"></th>
+                <td>{{ tictet.created_on|date:"F d, Y" }}</td>
+                <td>{{ tictet.title }}</td>
+                <td>{{ tictet.status }}</td>
+                <td>{{ tictet.added_by_seller }}</td>
+                <td>{{ tictet.updated_on|date:"F d, Y" }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock contnet %}

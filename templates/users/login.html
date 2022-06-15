@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block contnet %}
+{% load static %}
+<br/>
+<br/>
+
+
+<div class="container" >
+  <div class="row" style="width:70%; margin: auto;">
+      <form class="log_form" method="POST" style="width: 50%; margin: auto;">
+        {% csrf_token %}
+          <h1 class="login-brand"><i class="fas fa-shopping-cart"></i> Arzij Shop - Login</h1>
+          <div class="hre"></div>
+
+          <div class="input-group">
+              <span class="input-group-addon" id="basic-username"><i class="fas fa-envelope"></i></span>
+              {{login_form.email}}
+          </div>
+          
+          <div class="input-group">
+              <span class="input-group-addon" id="basic-pass"><i class="fas fa-key"></i></span>
+                {{login_form.password}}
+          </div>
+          <script src="https://www.google.com/recaptcha/api.js?hl=en" async defer
+              type="dcc719d115af5502b14830a8-text/javascript"></script>
+          <div class="g-recaptcha" theme="light" id="buzzNoCaptchaId_de9d50656e4b89b01cc01791978249ea"
+              data-sitekey="6Lf4JfoUAAAAAKfwPSobPqVDkzusvPq8y18zc7K8"></div>
+          <a href="{% url 'register' %}" class="forget-pass"><i class="btn btn-default btn-xs"> Forgot
+                  your password ? </i></a>
+          <div class="hre"></div>
+          <center><button class="btn btn-primary" type="submit"><b> Login </b><i class="fas fa-sign-in-alt"></i></button>
+          </center>
+          <br>
+          <a href="{% url 'register' %}" class="forget-pass"><i class="btn btn-default btn-xs"> <i
+                      class="fas fa-user-plus"></i> Register a new account</a></i>
+          <div class="cls"></div>
+      </form>
+  </div>
+</div>
+<script src="https://oluxshop.to/assets/js/jquery-1.11.3.min.js"
+  type="dcc719d115af5502b14830a8-text/javascript"></script>
+<script src="https://oluxshop.to/assets/js/bootstrap.min.js"
+  type="dcc719d115af5502b14830a8-text/javascript"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154144929-1"
+  type="dcc719d115af5502b14830a8-text/javascript"></script>
+<script type="dcc719d115af5502b14830a8-text/javascript">
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-154144929-1');
+</script>
+<script type="dcc719d115af5502b14830a8-text/javascript">
+$('form').submit(function(){
+$(this).find(':submit').attr( 'disabled','disabled' );
+//the rest of your code
+setTimeout(() => {
+$(this).find(':submit').attr( 'disabled',false );
+}, 16000)
+});
+</script>
+
+
+
+{% endblock contnet %}
+
+{% comment %} <div class="section">
+  <div class="video-container">
+    <video autoplay loop muted>
+      <source src={% static 'video1.mkv' %}>
+    </video>
+  </div>
+  </div> {% endcomment %}

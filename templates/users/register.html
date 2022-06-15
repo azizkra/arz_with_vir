@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block contnet %}
+
+<div class="container">
+  <div class="row">
+  <form class="log_form" method="POST" style="max-width: 1000px;">
+    {% csrf_token %}
+  <h1 class="login-brand"><i class="fas fa-shopping-cart"></i> Arzij Shop - Register</h1>
+  <div class="hre"></div>
+  <div class="input-group">
+  <span class="input-group-addon" id="basic-username"><i class="fas fa-user"></i></span>
+  {{register_form.username}}
+</div>
+
+  <div class="input-group">
+  <span class="input-group-addon" id="basic-username"><i class="fas fa-envelope"></i></span>
+  {{register_form.email}}
+  </div>
+
+  <div class="input-group">
+  <span class="input-group-addon" id="basic-pass"><i class="fas fa-key"></i></span>
+  {{register_form.password1}}  
+  </div>
+
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-pass"><i class="fas fa-key"></i></span>
+    {{register_form.password2}}
+  </div>
+
+  <script src="https://www.google.com/recaptcha/api.js?hl=en" async defer type="52de12abc5a3b5bc4e8b4248-text/javascript"></script><div class="g-recaptcha" theme="light" id="buzzNoCaptchaId_ec4454140e87f02c40fa7d261168ee8e" data-sitekey="6Lf4JfoUAAAAAKfwPSobPqVDkzusvPq8y18zc7K8"></div>
+  <div class="hre"></div>
+  <center><button class="btn btn-primary" type="submit"><b> Register </b><i class="fas fa-user-plus"></i></button></center>
+  <br>
+  <a href="{% url 'login' %}" class="forget-pass"><i class="btn btn-default btn-xs"> <i class="fas fa-user-plus"></i> Already Have ab account</i></a>
+  <div class="cls"></div>
+  </form>
+  </div>
+  </div>
+  <script src="https://oluxshop.to/assets/js/jquery-1.11.3.min.js" type="52de12abc5a3b5bc4e8b4248-text/javascript"></script>
+  <script src="https://oluxshop.to/assets/js/bootstrap.min.js" type="52de12abc5a3b5bc4e8b4248-text/javascript"></script>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154144929-1" type="52de12abc5a3b5bc4e8b4248-text/javascript"></script>
+  <script type="52de12abc5a3b5bc4e8b4248-text/javascript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  gtag('config', 'UA-154144929-1');
+  </script>
+  <script type="52de12abc5a3b5bc4e8b4248-text/javascript">
+  $('form').submit(function(){
+   $(this).find(':submit').attr( 'disabled','disabled' );
+   //the rest of your code
+  setTimeout(() => {
+      $(this).find(':submit').attr( 'disabled',false );
+  }, 16000)
+  });
+  </script>
+  <script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="52de12abc5a3b5bc4e8b4248-|49" defer=""></script></body>
+
+
+{% endblock contnet %}
+
+

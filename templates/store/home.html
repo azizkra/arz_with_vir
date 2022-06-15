@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block contnet %}
+<div class="container mt-5">
+    <div class="card w-25">
+      <div class="card-body">
+        {% for i in checkout %}
+        <h5 class="card-title">{{ i.data.name }}</h5>
+        <p class="card-text">
+          <span>{{ i.data.description }}</span>
+          <br>
+          <span>${{ i.data.local_price.amount }} {{ i.data.local_price.currency }}</span>
+        </p>
+        <div>
+          <div class="mt-2">
+            <a class="btn btn-primary buy-with-crypto w-100" href="{{ i.link }}">Purchase</a>
+            <script src="https://commerce.coinbase.com/v1/checkout.js?version=201807"></script>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  
+{% endblock contnet %}
+
